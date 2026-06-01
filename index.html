@@ -2,116 +2,348 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía FC 26</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header>
-    <h1>Guía FC 26.</h1>
-    <p>Aprende a dominar el juego como un profesional</p>
-
-    <nav>
-        <ul>
-            <li><a href="#modos">Modos</a></li>
-            <li><a href="#consejos">Consejos</a></li>
-            <li><a href="#jugadores">Jugadores</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+<header class="site-header">
+    <div class="header-content">
+        <div class="header-brand">
+            <h1>Guía FC 26</h1>
+            <p class="header-subtitle">Aprende a dominar el juego como un profesional</p>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#modos">Modos</a></li>
+                <li><a href="#consejos">Consejos</a></li>
+                <li><a href="#jugadores">Jugadores</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 
-<main>
+<main class="site-main">
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-badge">⚽ Temporada 2026</p>
+            <h2 class="hero-title">El fútbol más real<br>que jamás jugaste</h2>
+            <p class="hero-desc">
+                EA Sports FC 26 es la nueva entrega de la saga de fútbol más popular del mundo.
+                Con jugadores reales, ligas oficiales y modos de juego únicos, FC 26 te pone
+                en el centro de la acción como nunca antes. Ya sea armando tu equipo en
+                Ultimate Team, gestionando un club en Modo Carrera o jugando en línea con amigos
+                en Clubes Pro — siempre hay una nueva forma de vivir el fútbol.
+            </p>
+            <div class="hero-btns">
+                <a href="#modos" class="btn btn-hero">Ver modos de juego</a>
+                <a href="#jugadores" class="btn btn-hero-outline">Jugadores destacados</a>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <div class="hero-circle"></div>
+            <div class="hero-circle hero-circle--2"></div>
+        </div>
+    </section>
 
     <!-- MODOS -->
-    <section id="modos">
-        <h2>Modos de Juego</h2>
+    <section id="modos" class="section">
+        <h2 class="section-title">Modos de Juego</h2>
 
-        <article>
-            <h3>Ultimate Team</h3>
-            <p>Construye tu equipo ideal con los mejores jugadores del mundo.</p>
-        </article>
+        <div class="cards-grid">
+            <article class="card">
+                <div class="card-icon">⚽</div>
+                <h3>Ultimate Team</h3>
+                <p>Construye tu equipo ideal con los mejores jugadores del mundo.</p>
+                <a href="#modal-ut" class="btn">Explorar</a>
+            </article>
 
-        <article>
-            <h3>Modo Carrera</h3>
-            <p>Gestiona un club o crea tu propio jugador y llévalo a la cima.</p>
-        </article>
+            <article class="card">
+                <div class="card-icon">🏆</div>
+                <h3>Modo Carrera</h3>
+                <p>Gestiona un club o crea tu propio jugador y llévalo a la cima.</p>
+                <a href="#modal-carrera" class="btn">Explorar</a>
+            </article>
 
-        <!-- IMAGEN (usar carpeta img) -->
-        <img src="img/fc26.jpg" alt="Gameplay FC 26">
+            <article class="card">
+                <div class="card-icon">🎮</div>
+                <h3>Clubes Pro</h3>
+                <p>Crea tu avatar y juega con amigos en partidos en línea.</p>
+                <a href="#modal-clubes" class="btn">Explorar</a>
+            </article>
+        </div>
+
+        <!-- IMAGEN -->
+        <div class="media-block">
+            <img src="img/fc26.jpg" alt="Gameplay FC 26" class="game-img">
+        </div>
 
         <!-- VIDEO -->
-        <h3>Gameplay FC 26</h3>
-        <iframe width="400" height="250"
-        src="https://www.youtube.com/embed/kXsYW_vK3ds"
-        title="Gameplay FC 26">
-        </iframe>
+        <div class="video-block">
+            <h3>Gameplay FC 26</h3>
+            <div class="video-wrapper">
+                <iframe
+                    width="400" height="250"
+                    src="https://www.youtube.com/embed/kXsYW_vK3ds"
+                    title="Gameplay FC 26"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
 
         <!-- ENLACE EXTERNO -->
-        <p>
+        <p class="external-link-text">
             Visita la página oficial:
-            <a href="https://www.ea.com" target="_blank">EA Sports</a>
+            <a href="https://www.ea.com" target="_blank" class="link-externo">EA Sports ↗</a>
         </p>
     </section>
 
     <!-- CONSEJOS -->
-    <section id="consejos">
-        <h2>Consejos</h2>
+    <section id="consejos" class="section section-alt">
+        <h2 class="section-title">Consejos</h2>
 
-        <ul>
-            <li>Practicar tiros y jugadas</li>
-            <li>Aprender regates avanzados</li>
-            <li>Defender con paciencia</li>
-            <li>Controlar el ritmo del partido</li>
+        <ul class="tips-list">
+            <li><a href="#consejo-tiros">🎯 Practicar tiros y jugadas</a></li>
+            <li><a href="#consejo-regates">⚡ Aprender regates avanzados</a></li>
+            <li><a href="#consejo-defensa">🛡️ Defender con paciencia</a></li>
+            <li><a href="#consejo-ritmo">🎮 Controlar el ritmo del partido</a></li>
         </ul>
     </section>
 
     <!-- JUGADORES -->
-    <section id="jugadores">
-        <h2>Jugadores destacados</h2>
+    <section id="jugadores" class="section">
+        <h2 class="section-title">Jugadores destacados</h2>
 
-        <table border="1">
-            <tr>
-                <th colspan="2">Top Jugadores FC 26</th>
-            </tr>
-            <tr>
-                <th>Jugador</th>
-                <th>Media</th>
-            </tr>
-            <tr>
-                <td>Mbappé</td>
-                <td>91</td>
-            </tr>
-            <tr>
-                <td>Haaland</td>
-                <td>90</td>
-            </tr>
-        </table>
+        <div class="player-cards-grid">
+
+            <!-- Carta Mbappé -->
+            <div class="player-card-img">
+                <img src="img/mbappe.png" alt="Carta Mbappé FC 26">
+            </div>
+
+            <!-- Carta Haaland -->
+            <div class="player-card-img">
+                <img src="img/haaland.png" alt="Carta Haaland FC 26">
+            </div>
+
+            <!-- Carta Vinicius Jr. -->
+            <div class="player-card-img">
+                <img src="img/vinicius.png" alt="Carta Vinicius Jr. FC 26">
+            </div>
+
+            <!-- Carta Bellingham -->
+            <div class="player-card-img">
+                <img src="img/bellingham.png" alt="Carta Bellingham FC 26">
+            </div>
+
+        </div>
     </section>
 
     <!-- CONTACTO -->
-    <section id="contacto">
-        <h2>Contacto</h2>
+    <section id="contacto" class="section section-alt">
+        <h2 class="section-title">Contacto</h2>
 
-        <form>
-            <label>Nombre:</label><br>
-            <input type="text"><br><br>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
 
-            <label>Email:</label><br>
-            <input type="email"><br><br>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
 
-            <label>Mensaje:</label><br>
-            <textarea></textarea><br><br>
+            <div class="form-group">
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribí tu mensaje..." required></textarea>
+            </div>
 
-            <button type="submit">Enviar</button>
+            <button type="submit" class="btn btn-submit">Enviar mensaje</button>
         </form>
     </section>
 
 </main>
 
-<footer>
-    <p>Proyecto FC 26 - 2026</p>
+<footer class="site-footer">
+    <p>Proyecto FC 26 — 2026</p>
 </footer>
+
+<!-- ================================================
+     MODALES — se muestran con CSS :target (sin JS)
+     El boton Explorar apunta al id del modal.
+     El boton X apunta de vuelta a #modos para cerrarlo.
+     ================================================ -->
+
+<!-- Modal Ultimate Team -->
+<div id="modal-ut" class="modal-overlay">
+    <div class="modal-box">
+        <a href="#modos" class="modal-close">✕</a>
+        <h2 class="modal-title">⚽ Ultimate Team</h2>
+        <p class="modal-desc">
+            El modo más popular de FC 26. Armá tu equipo ideal comprando y vendiendo
+            cartas de jugadores reales en el mercado de transferencias. Competí en
+            divisiones, completá SBCs y ganá recompensas únicas.
+        </p>
+        <ul class="modal-features">
+            <li>🃏 Mercado de transferencias con millones de cartas</li>
+            <li>🏅 Divisiones online del 10 al 1</li>
+            <li>⚡ Squad Building Challenges (SBCs)</li>
+            <li>🎯 Objetivos y recompensas diarias y semanales</li>
+        </ul>
+        <div class="modal-video">
+            <iframe
+                width="100%" height="220"
+                src="https://www.youtube.com/embed/RmzKJNa0VVU"
+                title="Ultimate Team FC 26"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <a href="https://www.ea.com" target="_blank" class="btn">Ver en EA Sports ↗</a>
+    </div>
+</div>
+
+<!-- Modal Modo Carrera -->
+<div id="modal-carrera" class="modal-overlay">
+    <div class="modal-box">
+        <a href="#modos" class="modal-close">✕</a>
+        <h2 class="modal-title">🏆 Modo Carrera</h2>
+        <p class="modal-desc">
+            Tomá el control de un club o creá tu propio jugador desde cero.
+            Gestioná fichajes, tácticas y presupuesto para llevar a tu equipo
+            a lo más alto de las ligas más importantes del mundo.
+        </p>
+        <ul class="modal-features">
+            <li>📋 Administrá fichajes y presupuesto del club</li>
+            <li>👤 Creá tu propio jugador y desarrollalo</li>
+            <li>🌍 Competí en ligas y copas internacionales</li>
+            <li>📈 Sistema de progresión y atributos</li>
+        </ul>
+        <div class="modal-video">
+            <iframe
+                width="100%" height="220"
+                src="https://www.youtube.com/embed/SmaOYeI6HmU"
+                title="Modo Carrera FC 26"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <a href="https://www.ea.com" target="_blank" class="btn">Ver en EA Sports ↗</a>
+    </div>
+</div>
+
+<!-- Modal Clubes Pro -->
+<div id="modal-clubes" class="modal-overlay">
+    <div class="modal-box">
+        <a href="#modos" class="modal-close">✕</a>
+        <h2 class="modal-title">🎮 Clubes Pro</h2>
+        <p class="modal-desc">
+            Creá tu avatar personalizado y unite a un club con amigos para jugar
+            partidos en línea de 11 vs 11. Cada jugador controla un solo jugador,
+            haciendo que el trabajo en equipo sea clave para ganar.
+        </p>
+        <ul class="modal-features">
+            <li>👥 Partidos online 11 vs 11 con amigos</li>
+            <li>🧑‍🎨 Personalizá tu avatar al detalle</li>
+            <li>📊 Estadísticas y temporadas del club</li>
+            <li>🏟️ Ascendé divisiones con tu equipo</li>
+        </ul>
+        <div class="modal-video">
+            <iframe
+                width="100%" height="220"
+                src="https://www.youtube.com/embed/ovtssR1LFqs"
+                title="Clubes Pro FC 26"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <a href="https://www.ea.com" target="_blank" class="btn">Ver en EA Sports ↗</a>
+    </div>
+</div>
+
+<!-- ================================================
+     MODALES DE CONSEJOS — CSS :target (sin JS)
+     ================================================ -->
+
+<!-- Modal Tiros y jugadas -->
+<div id="consejo-tiros" class="modal-overlay">
+    <div class="modal-box">
+        <a href="#consejos" class="modal-close">✕</a>
+        <h2 class="modal-title">🎯 Practicar tiros y jugadas</h2>
+        <p class="modal-desc">
+            El tiro es una de las habilidades más importantes del juego. Practicarlo
+            constantemente te permite reaccionar rápido en situaciones de gol reales.
+        </p>
+        <ul class="modal-features">
+            <li>⚽ Usá el modo Entrenamiento para practicar sin presión</li>
+            <li>📐 Apuntá a las esquinas del arco, son las zonas más difíciles para el portero</li>
+            <li>💡 Probá el tiro con efecto (L2 + disparo) para curvar la pelota</li>
+            <li>🔁 Repetí las jugadas ensayadas hasta dominarlas</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal Regates -->
+<div id="consejo-regates" class="modal-overlay">
+    <div class="modal-box">
+        <a href="#consejos" class="modal-close">✕</a>
+        <h2 class="modal-title">⚡ Aprender regates avanzados</h2>
+        <p class="modal-desc">
+            Los regates avanzados te permiten superar rivales y crear espacios en
+            situaciones difíciles. Dominarlos marca la diferencia entre un jugador
+            promedio y uno élite.
+        </p>
+        <ul class="modal-features">
+            <li>🕹️ El regate con stick derecho es el más versátil</li>
+            <li>🔄 El sombrero y la ruleta son perfectos para espacios reducidos</li>
+            <li>⚡ Combiná velocidad con cambios de dirección bruscos</li>
+            <li>🎯 No abuses del regate, usalo en el momento justo</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal Defensa -->
+<div id="consejo-defensa" class="modal-overlay">
+    <div class="modal-box">
+        <a href="#consejos" class="modal-close">✕</a>
+        <h2 class="modal-title">🛡️ Defender con paciencia</h2>
+        <p class="modal-desc">
+            Una buena defensa no se trata de presionar siempre, sino de leer
+            el juego y anticiparse. La paciencia es la clave para no dejar
+            espacios libres al rival.
+        </p>
+        <ul class="modal-features">
+            <li>🚶 No corras hacia el rival, esperá el momento exacto</li>
+            <li>📏 Mantené la línea defensiva ordenada</li>
+            <li>🤝 Usá el segundo defensor (R1) para presionar en bloque</li>
+            <li>⚠️ Evitá hacer faltas dentro del área a toda costa</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Modal Ritmo -->
+<div id="consejo-ritmo" class="modal-overlay">
+    <div class="modal-box">
+        <a href="#consejos" class="modal-close">✕</a>
+        <h2 class="modal-title">🎮 Controlar el ritmo del partido</h2>
+        <p class="modal-desc">
+            Saber cuándo acelerar y cuándo bajar el ritmo es una habilidad
+            táctica fundamental. Los mejores jugadores dominan el tempo del
+            partido para cansara al rival y encontrar los mejores espacios.
+        </p>
+        <ul class="modal-features">
+            <li>🐢 Pasá la pelota atrás cuando no hay espacio adelante</li>
+            <li>💨 Acelerá el juego cuando el rival está desorganizado</li>
+            <li>🔄 Cambiá el juego de un lado al otro para abrir espacios</li>
+            <li>🧠 Guardá energía al principio para atacar al final</li>
+        </ul>
+    </div>
+</div>
 
 </body>
 </html>
