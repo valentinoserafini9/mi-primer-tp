@@ -528,3 +528,179 @@ body::before {
 .modal-video iframe {
     display: block;
 }
+/* ------------------------------------------------
+   14. HERO — pantalla de bienvenida estilo FC 26
+   ------------------------------------------------ */
+.hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 10% 30%, rgba(80, 220, 60, 0.22) 0%, transparent 40%),
+        radial-gradient(ellipse at 75% 15%, rgba(0, 180, 255, 0.25) 0%, transparent 40%),
+        radial-gradient(ellipse at 55% 75%, rgba(150, 60, 255, 0.18) 0%, transparent 40%),
+        #05080f;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+    padding: 80px 40px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid #00e5ff;
+    color: #00e5ff;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    background: linear-gradient(90deg, #ffffff 0%, #00e5ff 60%, #7fff00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 580px;
+}
+
+/* Botones del hero — Flexbox */
+.hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-hero {
+    background-color: #7fff00;
+    color: #05080f;
+    border: 2px solid #7fff00;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(127, 255, 0, 0.4);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color var(--transition),
+                transform var(--transition),
+                box-shadow var(--transition);
+}
+
+.btn-hero:hover {
+    background-color: #6de000;
+    border-color: #6de000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(127, 255, 0, 0.5);
+}
+
+.btn-hero-outline {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: border-color var(--transition),
+                background-color var(--transition),
+                transform var(--transition);
+}
+
+.btn-hero-outline:hover {
+    border-color: var(--color-text);
+    background-color: rgba(255,255,255,0.05);
+    transform: translateY(-3px);
+}
+
+/* Círculos decorativos animados */
+.hero-decoration {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.hero-circle {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-circle--2 {
+    width: 350px;
+    height: 350px;
+    border-color: rgba(127, 255, 0, 0.08);
+    animation: rotar 20s linear infinite;
+}
+
+/* Animación @keyframes */
+@keyframes rotar {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ------------------------------------------------
+   15. CARTAS DE JUGADORES
+   ------------------------------------------------ */
+.player-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.player-card-img {
+    display: flex;
+    justify-content: center;
+}
+
+.player-card-img img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 12px;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.player-card-img img:hover {
+    transform: translateY(-10px) scale(1.05);
+    filter: drop-shadow(0 16px 30px rgba(200,160,40,0.6));
+}
