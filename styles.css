@@ -7,15 +7,15 @@
    1. VARIABLES CSS (:root)
    ------------------------------------------------ */
 :root {
-    --color-bg: #05080f;
-    --color-surface: #0c1020;
-    --color-surface-alt: #080c18;
-    --color-primary: #00e5ff;
-    --color-accent: #7fff00;
-    --color-header-bg: #05080f;
+    --color-bg: #0a0e1a;
+    --color-surface: #111827;
+    --color-surface-alt: #0f172a;
+    --color-primary: #00d4ff;
+    --color-accent: #f97316;
     --color-text: #e2e8f0;
     --color-text-muted: #94a3b8;
     --color-border: #1e293b;
+    --color-header-bg: #060a14;
 
     --font-heading: 'Rajdhani', sans-serif;
     --font-body: 'Exo 2', sans-serif;
@@ -26,6 +26,7 @@
 
     --shadow-card: 0 4px 24px rgba(0, 212, 255, 0.08);
     --shadow-hover: 0 8px 40px rgba(0, 212, 255, 0.2);
+    --shadow-btn: 0 4px 15px rgba(249, 115, 22, 0.4);
 
     --transition: 0.3s ease;
 }
@@ -47,32 +48,17 @@ body {
     font-size: 16px;
 }
 
-/* Fondo global con manchas de color estilo FC 26 */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -1;
-    background:
-        radial-gradient(ellipse at 15% 20%, rgba(100, 220, 80, 0.18) 0%, transparent 45%),
-        radial-gradient(ellipse at 80% 10%, rgba(0, 180, 255, 0.2) 0%, transparent 40%),
-        radial-gradient(ellipse at 60% 70%, rgba(140, 60, 255, 0.15) 0%, transparent 45%),
-        #05080f;
-    filter: blur(40px);
-}
-
 /* ------------------------------------------------
    3. HEADER — Flexbox
    ------------------------------------------------ */
 .site-header {
-    background: rgba(5, 8, 15, 0.85);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+    background-color: var(--color-header-bg);
+    border-bottom: 2px solid var(--color-primary);
     padding: 20px 40px;
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 212, 255, 0.15);
 }
 
 /* Flexbox: alinea brand y nav en una fila */
@@ -88,12 +74,9 @@ body::before {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 700;
+    color: var(--color-primary);
     letter-spacing: 2px;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #00e5ff, #7fff00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .header-subtitle {
@@ -101,6 +84,7 @@ body::before {
     color: var(--color-text-muted);
     margin-top: 2px;
 }
+
 /* ------------------------------------------------
    4. NAVEGACIÓN — Flexbox + hover
    ------------------------------------------------ */
@@ -127,9 +111,9 @@ body::before {
 }
 
 .main-nav a:hover {
-    color: #7fff00;
-    background-color: rgba(127, 255, 0, 0.08);
-    border-color: #7fff00;
+    color: var(--color-primary);
+    background-color: rgba(0, 212, 255, 0.08);
+    border-color: var(--color-primary);
 }
 
 /* ------------------------------------------------
@@ -152,13 +136,14 @@ body::before {
     border-radius: var(--radius-md);
     margin: 20px 0;
     border: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .section-title {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 700;
-    color: #00e5ff;
+    color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 36px;
@@ -172,24 +157,1180 @@ body::before {
     display: block;
     width: 60%;
     height: 3px;
-    background: #7fff00;
+    background: var(--color-accent);
     border-radius: 2px;
     margin-top: 8px;
 }
 
 /* ------------------------------------------------
-   6. FOOTER
+   6. CARDS — CSS Grid + hover
+   ------------------------------------------------ */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                border-color var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-primary);
+}
+
+.card-icon {
+    font-size: 2rem;
+}
+
+.card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: 1px;
+}
+
+.card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+/* ------------------------------------------------
+   7. BOTONES — hover + transition
+   ------------------------------------------------ */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color var(--transition),
+                color var(--transition),
+                box-shadow var(--transition),
+                transform var(--transition);
+    align-self: flex-start;
+}
+
+.btn:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.35);
+    transform: translateY(-2px);
+}
+
+.btn-submit {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+    padding: 12px 32px;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-btn);
+}
+
+.btn-submit:hover {
+    background-color: #ea6c0a;
+    border-color: #ea6c0a;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(249, 115, 22, 0.5);
+}
+
+/* ------------------------------------------------
+   8. IMAGEN Y VIDEO
+   ------------------------------------------------ */
+.media-block {
+    margin-bottom: 36px;
+}
+
+.game-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--color-border);
+    box-shadow: var(--shadow-hover);
+    display: block;
+}
+
+.video-block {
+    margin-bottom: 32px;
+}
+
+.video-block h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.video-wrapper {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: inline-block;
+    border: 2px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+.video-wrapper iframe {
+    display: block;
+}
+
+/* ------------------------------------------------
+   9. ENLACE EXTERNO
+   ------------------------------------------------ */
+.external-link-text {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.link-externo {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition), letter-spacing var(--transition);
+}
+
+.link-externo:hover {
+    color: var(--color-accent);
+    letter-spacing: 1px;
+}
+
+/* ------------------------------------------------
+   10. LISTA DE CONSEJOS
+   ------------------------------------------------ */
+.tips-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tips-list li {
+    background-color: var(--color-surface);
+    border-left: 4px solid var(--color-primary);
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    color: var(--color-text);
+    box-shadow: var(--shadow-card);
+    transition: border-color var(--transition), transform var(--transition);
+}
+
+.tips-list li:hover {
+    border-left-color: var(--color-accent);
+    transform: translateX(6px);
+}
+
+/* ------------------------------------------------
+   11. TABLA DE JUGADORES
+   ------------------------------------------------ */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.players-table {
+    width: 100%;
+    max-width: 500px;
+    border-collapse: collapse;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.players-table th {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 14px 20px;
+    text-align: left;
+}
+
+.players-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-size: 0.95rem;
+    transition: background-color var(--transition);
+}
+
+.players-table tbody tr:hover td {
+    background-color: rgba(0, 212, 255, 0.05);
+}
+
+.players-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.rating {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: white;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 2px 12px;
+    border-radius: var(--radius-sm);
+}
+
+/* ------------------------------------------------
+   12. FORMULARIO DE CONTACTO
+   ------------------------------------------------ */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 520px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    border-radius: var(--radius-md);
+}
+
+/* ------------------------------------------------
+   13. FOOTER
    ------------------------------------------------ */
 .site-footer {
     text-align: center;
     padding: 32px 24px;
     margin-top: 40px;
-    background: rgba(5, 8, 15, 0.9);
-    border-top: 1px solid rgba(0, 229, 255, 0.1);
+    background-color: var(--color-header-bg);
+    border-top: 1px solid var(--color-border);
     color: var(--color-text-muted);
     font-size: 0.85rem;
     letter-spacing: 1px;
 }
+
+/* ------------------------------------------------
+   14. ANIMACIÓN — @keyframes pulse en el título
+   ------------------------------------------------ */
+@keyframes glow-pulse {
+    0%   { text-shadow: 0 0 8px rgba(0, 212, 255, 0.3); }
+    50%  { text-shadow: 0 0 24px rgba(0, 212, 255, 0.7); }
+    100% { text-shadow: 0 0 8px rgba(0, 212, 255, 0.3); }
+}
+
+.header-brand h1 {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ------------------------------------------------
+   15. RESPONSIVE — TABLET (max-width: 768px)
+   ------------------------------------------------ */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    /* Grid de 2 columnas en tablet */
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section, .section-alt {
+        padding: 40px 16px;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+}
+
+/* ------------------------------------------------
+   16. RESPONSIVE — CELULAR (max-width: 480px)
+   ------------------------------------------------ */
+@media (max-width: 480px) {
+    .site-header {
+        padding: 16px 20px;
+    }
+
+    .header-brand h1 {
+        font-size: 1.5rem;
+    }
+
+    .main-nav a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    /* 1 columna en celular */
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-wrapper iframe {
+        width: 100%;
+        height: 200px;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .contact-form {
+        max-width: 100%;
+    }
+
+    .players-table {
+        font-size: 0.85rem;
+    }
+}
+
+/* ------------------------------------------------
+   17. MODALES — CSS :target (sin JavaScript)
+   ------------------------------------------------ */
+
+/* Fondo oscuro que cubre toda la pantalla — oculto por defecto */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    /* Flexbox para centrar el modal */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    overflow-y: auto;
+}
+
+/* Se muestra cuando la URL tiene el #id correspondiente */
+.modal-overlay:target {
+    display: flex;
+}
+
+/* Caja del modal */
+.modal-box {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 620px;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+}
+
+/* Botón cerrar (X) */
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+    transition: color var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--color-accent);
+}
+
+/* Título del modal */
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+/* Descripción */
+.modal-desc {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Lista de características */
+.modal-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.modal-features li {
+    background-color: var(--color-bg);
+    border-left: 3px solid var(--color-accent);
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+/* Video dentro del modal */
+.modal-video {
+    margin-bottom: 24px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.modal-video iframe {
+    display: block;
+}
+
+/* Responsive modal en celular */
+@media (max-width: 480px) {
+    .modal-box {
+        padding: 24px 18px;
+    }
+
+    .modal-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* ------------------------------------------------
+   18. ENLACES EN LISTA DE CONSEJOS
+   ------------------------------------------------ */
+.tips-list a {
+    text-decoration: none;
+    color: var(--color-text);
+    display: block;
+    width: 100%;
+    transition: color var(--transition);
+}
+
+.tips-list a:hover {
+    color: var(--color-primary);
+}
+
+/* ------------------------------------------------
+   19. CARTAS DE JUGADORES — estilo FC 26 oro
+   ------------------------------------------------ */
+.player-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.player-card {
+    /* Fondo degradado dorado estilo carta de oro */
+    background: linear-gradient(160deg, #c9a84c 0%, #f0d060 40%, #b8892a 100%);
+    border-radius: 12px;
+    padding: 18px 14px 14px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+    border: 1px solid #e8c040;
+    transition: transform var(--transition), box-shadow var(--transition);
+    cursor: default;
+}
+
+.player-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 40px rgba(200, 160, 40, 0.5);
+}
+
+/* Número de media (arriba a la izquierda) */
+.card-rating {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #2a1800;
+    line-height: 1;
+}
+
+/* Posición (debajo del número) */
+.card-position {
+    position: absolute;
+    top: 46px;
+    left: 16px;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #2a1800;
+    letter-spacing: 1px;
+}
+
+/* Avatar / silueta del jugador */
+.card-avatar {
+    font-size: 3.5rem;
+    margin: 0 auto 6px;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Nombre del jugador */
+.card-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a0e00;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+/* Club y bandera */
+.card-club {
+    font-size: 0.72rem;
+    color: #3a2000;
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+}
+
+/* Separador */
+.player-card::after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 1px;
+    background: rgba(0,0,0,0.2);
+    margin: 0 auto 10px;
+}
+
+/* Grid de estadísticas */
+.card-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px 8px;
+}
+
+.card-stats span {
+    font-size: 0.7rem;
+    color: #1a0e00;
+    font-family: var(--font-body);
+    font-weight: 500;
+}
+
+.card-stats b {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+    color: #3a2000;
+    margin-right: 2px;
+}
+
+/* Responsive cartas */
+@media (max-width: 768px) {
+    .player-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .player-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .card-avatar {
+        font-size: 2.5rem;
+    }
+
+    .card-name {
+        font-size: 0.9rem;
+    }
+}
+
+/* ------------------------------------------------
+   20. CARTAS REDISEÑADAS — forma y fondo FC 26
+   ------------------------------------------------ */
+
+/* Reescribo los estilos de carta para que se parezcan más al original */
+.player-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.player-card {
+    background:
+        radial-gradient(ellipse at 50% 30%, rgba(255,255,180,0.7) 0%, transparent 60%),
+        repeating-conic-gradient(from 0deg at 50% 40%,
+            rgba(255,220,80,0.18) 0deg 6deg,
+            transparent 6deg 12deg),
+        linear-gradient(170deg, #d4a017 0%, #f5d060 30%, #e8b830 60%, #a07010 100%);
+    /* Forma con esquinas superiores cortadas en diagonal — clip-path */
+    clip-path: polygon(18% 0%, 82% 0%, 100% 10%, 100% 100%, 0% 100%, 0% 10%);
+    border-radius: 10px;
+    padding: 22px 14px 16px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.25);
+    border: none;
+    transition: transform var(--transition), box-shadow var(--transition);
+    cursor: default;
+    min-height: 260px;
+}
+
+.player-card:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 20px 50px rgba(200, 160, 40, 0.6);
+}
+
+.card-rating {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: var(--font-heading);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #1a0e00;
+    line-height: 1;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+}
+
+.card-position {
+    position: absolute;
+    top: 50px;
+    left: 18px;
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #2a1800;
+    letter-spacing: 1px;
+}
+
+.card-avatar {
+    font-size: 4rem;
+    margin: 4px auto 4px;
+    display: block;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+}
+
+.card-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a0e00;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+}
+
+.card-club {
+    font-size: 0.7rem;
+    color: #3a2000;
+    margin-bottom: 8px;
+    font-family: var(--font-body);
+}
+
+.player-card::after {
+    content: '';
+    display: block;
+    width: 75%;
+    height: 1px;
+    background: rgba(0,0,0,0.25);
+    margin: 0 auto 8px;
+}
+
+.card-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px 6px;
+}
+
+.card-stats span {
+    font-size: 0.68rem;
+    color: #1a0e00;
+    font-family: var(--font-body);
+}
+
+.card-stats b {
+    font-family: var(--font-heading);
+    font-size: 0.62rem;
+    letter-spacing: 0.5px;
+    color: #3a2000;
+    margin-right: 2px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .player-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .player-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+/* ------------------------------------------------
+   21. IMAGEN DEL JUGADOR DENTRO DE LA CARTA
+   ------------------------------------------------ */
+.card-avatar img {
+    width: 100%;
+    max-width: 120px;
+    height: 110px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+}
+
+/* ------------------------------------------------
+   21. FOTO DEL JUGADOR DENTRO DE LA CARTA
+   ------------------------------------------------ */
+.card-avatar img {
+    width: 100%;
+    max-width: 130px;
+    height: 110px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+/* ------------------------------------------------
+   22. CARTAS COMO IMAGEN DIRECTA
+   ------------------------------------------------ */
+.player-card-img {
+    display: flex;
+    justify-content: center;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.player-card-img img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 12px;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.player-card-img img:hover {
+    transform: translateY(-10px) scale(1.05);
+    filter: drop-shadow(0 16px 30px rgba(200,160,40,0.6));
+}
+
+/* ------------------------------------------------
+   23. HERO — pantalla de bienvenida estilo FC 26
+   ------------------------------------------------ */
+.hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* Fondo degradado oscuro estilo FC 26 */
+    background:
+        radial-gradient(ellipse at 70% 50%, rgba(0, 180, 255, 0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, #060a14 0%, #0a0e1a 50%, #060d1f 100%);
+    border-bottom: 2px solid var(--color-primary);
+    padding: 80px 40px;
+    max-width: 100%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+}
+
+/* Badge arriba del título */
+.hero-badge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+/* Título principal hero */
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    /* Palabra en color acento */
+    background: linear-gradient(90deg, #ffffff 0%, #00d4ff 60%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 36px;
+    max-width: 580px;
+}
+
+/* Botones del hero — Flexbox */
+.hero-btns {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.btn-hero {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    border-color: var(--color-primary);
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+}
+
+.btn-hero:hover {
+    background-color: #00b8d9;
+    border-color: #00b8d9;
+    color: var(--color-bg);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+}
+
+.btn-hero-outline {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+}
+
+.btn-hero-outline:hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+    background-color: rgba(255,255,255,0.05);
+    transform: translateY(-3px);
+    box-shadow: none;
+}
+
+/* Círculos decorativos de fondo */
+.hero-decoration {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.hero-circle {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-circle--2 {
+    width: 350px;
+    height: 350px;
+    border-color: rgba(249, 115, 22, 0.08);
+    animation: rotar 20s linear infinite;
+}
+
+@keyframes rotar {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive hero */
+@media (max-width: 768px) {
+    .hero {
+        padding: 60px 24px;
+        min-height: auto;
+    }
+
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    .hero-decoration {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+    }
+
+    .btn-hero, .btn-hero-outline {
+        text-align: center;
+    }
+}
+
+/* ------------------------------------------------
+   24. REDISEÑO GLOBAL — temática FC 26
+   ------------------------------------------------ */
+
+/* Nuevas variables de color estilo FC 26 */
+:root {
+    --color-bg: #05080f;
+    --color-surface: #0c1020;
+    --color-surface-alt: #080c18;
+    --color-primary: #00e5ff;
+    --color-accent: #7fff00;
+    --color-accent2: #a855f7;
+    --color-header-bg: #05080f;
+}
+
+/* Fondo global con manchas de color borrosas estilo FC 26 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(100, 220, 80, 0.18) 0%, transparent 45%),
+        radial-gradient(ellipse at 80% 10%, rgba(0, 180, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 70%, rgba(140, 60, 255, 0.15) 0%, transparent 45%),
+        radial-gradient(ellipse at 30% 80%, rgba(0, 220, 180, 0.1) 0%, transparent 40%),
+        #05080f;
+    filter: blur(40px);
+}
+
+/* Hero con el mismo fondo de manchas pero más intenso */
+.hero {
+    background:
+        radial-gradient(ellipse at 10% 30%, rgba(80, 220, 60, 0.22) 0%, transparent 40%),
+        radial-gradient(ellipse at 75% 15%, rgba(0, 180, 255, 0.25) 0%, transparent 40%),
+        radial-gradient(ellipse at 55% 75%, rgba(150, 60, 255, 0.18) 0%, transparent 40%),
+        #05080f;
+    border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+/* Header con blur y borde sutil */
+.site-header {
+    background: rgba(5, 8, 15, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+    box-shadow: none;
+}
+
+/* Título del header en verde/celeste estilo FC 26 */
+.header-brand h1 {
+    background: linear-gradient(90deg, #00e5ff, #7fff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: none;
+    text-shadow: none;
+}
+
+/* Nav links con nuevo acento */
+.main-nav a:hover {
+    color: #7fff00;
+    background-color: rgba(127, 255, 0, 0.08);
+    border-color: #7fff00;
+}
+
+/* Títulos de sección con nuevo color */
+.section-title {
+    color: #00e5ff;
+}
+
+.section-title::after {
+    background: #7fff00;
+}
+
+/* Cards con borde sutil de color */
+.card {
+    background: rgba(12, 16, 32, 0.8);
+    border-color: rgba(0, 229, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    border-color: #7fff00;
+    box-shadow: 0 8px 40px rgba(127, 255, 0, 0.15);
+}
+
+/* Botones principales en verde FC 26 */
+.btn {
+    color: #7fff00;
+    border-color: #7fff00;
+}
+
+.btn:hover {
+    background-color: #7fff00;
+    color: #05080f;
+    box-shadow: 0 4px 20px rgba(127, 255, 0, 0.35);
+}
+
+.btn-hero {
+    background-color: #7fff00;
+    color: #05080f;
+    border-color: #7fff00;
+    box-shadow: 0 4px 20px rgba(127, 255, 0, 0.4);
+}
+
+.btn-hero:hover {
+    background-color: #6de000;
+    border-color: #6de000;
+    color: #05080f;
+    box-shadow: 0 8px 30px rgba(127, 255, 0, 0.5);
+}
+
+/* Consejos con borde verde */
+.tips-list li {
+    border-left-color: #7fff00;
+    background: rgba(12, 16, 32, 0.8);
+}
+
+.tips-list li:hover {
+    border-left-color: #00e5ff;
+}
+
+/* Footer */
+.site-footer {
+    background: rgba(5, 8, 15, 0.9);
+    border-top: 1px solid rgba(0, 229, 255, 0.1);
+}
+
+/* Modales con nuevo estilo */
+.modal-box {
+    background: rgba(8, 12, 24, 0.97);
+    border-color: rgba(0, 229, 255, 0.3);
+    backdrop-filter: blur(20px);
+}
+
+.modal-title {
+    color: #00e5ff;
+}
+
+.modal-features li {
+    border-left-color: #7fff00;
+    background: rgba(5, 8, 15, 0.8);
+}
+
+/* Tabla/rating */
+.rating {
+    background-color: #7fff00;
+    color: #05080f;
+}
+
+/* Inputs del formulario */
+.form-group label {
+    color: #7fff00;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #7fff00;
+    box-shadow: 0 0 0 3px rgba(127, 255, 0, 0.12);
+}
+
+/* Botón submit */
+.btn-submit {
+    background-color: #7fff00;
+    color: #05080f;
+    border-color: #7fff00;
+    box-shadow: 0 4px 15px rgba(127, 255, 0, 0.4);
+}
+
+.btn-submit:hover {
+    background-color: #6de000;
+    border-color: #6de000;
+    color: #05080f;
+}
+
 /* ------------------------------------------------
    25. BUSCADOR DE JUGADORES
    ------------------------------------------------ */

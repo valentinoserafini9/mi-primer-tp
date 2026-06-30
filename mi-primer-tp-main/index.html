@@ -115,41 +115,31 @@
             <li><a href="#consejo-defensa">🛡️ Defender con paciencia</a></li>
             <li><a href="#consejo-ritmo">🎮 Controlar el ritmo del partido</a></li>
         </ul>
-
-        <button type="button" id="btn-consejo-random" class="btn btn-random">🎲 Consejo del día</button>
-        <p id="consejo-random-texto" class="random-tip"></p>
     </section>
 
     <!-- JUGADORES -->
     <section id="jugadores" class="section">
         <h2 class="section-title">Jugadores destacados</h2>
 
-        <!-- Buscador de jugadores -->
-        <div class="search-box">
-            <input type="text" id="buscador-jugadores" placeholder="Buscá un jugador por nombre o club...">
-        </div>
-
-        <p id="resultado-busqueda" class="search-result"></p>
-
-        <div class="player-cards-grid" id="contenedor-jugadores">
+        <div class="player-cards-grid">
 
             <!-- Carta Mbappé -->
-            <div class="player-card-img" data-nombre="Mbappé" data-club="Real Madrid">
+            <div class="player-card-img">
                 <img src="img/mbappe.png" alt="Carta Mbappé FC 26">
             </div>
 
             <!-- Carta Haaland -->
-            <div class="player-card-img" data-nombre="Haaland" data-club="Manchester City">
+            <div class="player-card-img">
                 <img src="img/haaland.png" alt="Carta Haaland FC 26">
             </div>
 
             <!-- Carta Vinicius Jr. -->
-            <div class="player-card-img" data-nombre="Vinicius Jr." data-club="Real Madrid">
+            <div class="player-card-img">
                 <img src="img/vinicius.png" alt="Carta Vinicius Jr. FC 26">
             </div>
 
             <!-- Carta Bellingham -->
-            <div class="player-card-img" data-nombre="Bellingham" data-club="Real Madrid">
+            <div class="player-card-img">
                 <img src="img/bellingham.png" alt="Carta Bellingham FC 26">
             </div>
 
@@ -160,27 +150,23 @@
     <section id="contacto" class="section section-alt">
         <h2 class="section-title">Contacto</h2>
 
-        <form class="contact-form" id="form-contacto">
+        <form class="contact-form">
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
-                <span class="error-msg" id="error-nombre"></span>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="tu@email.com">
-                <span class="error-msg" id="error-email"></span>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
             </div>
 
             <div class="form-group">
                 <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" placeholder="Escribí tu mensaje..."></textarea>
-                <span class="error-msg" id="error-mensaje"></span>
+                <textarea id="mensaje" name="mensaje" placeholder="Escribí tu mensaje..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-submit">Enviar mensaje</button>
-            <p id="confirmacion-envio" class="form-success"></p>
         </form>
     </section>
 
@@ -359,6 +345,5 @@
     </div>
 </div>
 
-<script src="script.js"></script>
 </body>
 </html>

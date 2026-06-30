@@ -27,4 +27,16 @@ Sitio web interactivo que funciona como guía para jugadores de FC 26. Incluye i
 - Layout con Flexbox en header, navegación, hero y formulario
 - Layout con CSS Grid en sección de modos de juego y jugadores destacados
 - Modales con CSS :target para mostrar información de cada modo de juego y consejo
-- Animaciones con
+- Animaciones con @keyframes y transiciones suaves en botones, cards y cartas
+
+### Interactividad (JavaScript)
+- **Buscador de jugadores en tiempo real**: filtra las cartas de jugadores por nombre o club mientras el usuario escribe (evento `input`)
+- **Consejo aleatorio**: muestra un consejo random tomado de un array al presionar un botón (evento `click`)
+- **Validación de formulario**: verifica que los campos no estén vacíos y que el email tenga formato válido, mostrando mensajes de error en pantalla (evento `submit`)
+- Manejo de errores con `try/catch` en la validación del formulario
+- Manipulación del DOM: mostrar/ocultar cartas, modificar textos, crear mensajes de error dinámicamente
+- Uso de arrays (`jugadores`, `consejos`) para almacenar y mostrar información
+
+## Enlace al repositorio
+
+https://github.com/valentinoserafini9/mi-primer-tp
