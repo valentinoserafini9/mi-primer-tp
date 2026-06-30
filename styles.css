@@ -190,3 +190,79 @@ body::before {
     font-size: 0.85rem;
     letter-spacing: 1px;
 }
+/* ------------------------------------------------
+   25. BUSCADOR DE JUGADORES
+   ------------------------------------------------ */
+.search-box {
+    margin-bottom: 16px;
+}
+
+#buscador-jugadores {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 12px 18px;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+#buscador-jugadores:focus {
+    border-color: #7fff00;
+    box-shadow: 0 0 0 3px rgba(127, 255, 0, 0.12);
+}
+
+.search-result {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    min-height: 20px;
+}
+
+/* ------------------------------------------------
+   26. MENSAJES DE ERROR DEL FORMULARIO
+   ------------------------------------------------ */
+.error-msg {
+    color: #ff5c5c;
+    font-size: 0.82rem;
+    min-height: 18px;
+    display: block;
+}
+
+.form-success {
+    color: #7fff00;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+/* ------------------------------------------------
+   27. BOTÓN Y TEXTO DE CONSEJO ALEATORIO
+   ------------------------------------------------ */
+.btn-random {
+    margin-top: 28px;
+    background-color: transparent;
+    color: #00e5ff;
+    border-color: #00e5ff;
+}
+
+.btn-random:hover {
+    background-color: #00e5ff;
+    color: #05080f;
+    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.35);
+}
+
+.random-tip {
+    margin-top: 16px;
+    background: rgba(12, 16, 32, 0.8);
+    border-left: 4px solid #00e5ff;
+    padding: 14px 20px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 0.95rem;
+    min-height: 20px;
+}
