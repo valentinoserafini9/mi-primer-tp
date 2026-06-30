@@ -80,3 +80,66 @@ function mostrarConsejoAleatorio() {
 
 /* Evento: click — al presionar el botón se muestra un consejo nuevo */
 document.getElementById("btn-consejo-random").addEventListener("click", mostrarConsejoAleatorio);
+/* ------------------------------------------------
+   5. FUNCIÓN: validarFormulario
+   Verifica que los campos obligatorios no estén
+   vacíos y que el email tenga formato correcto.
+   Muestra mensajes de error visibles para el usuario.
+   Usa try/catch para controlar errores inesperados.
+   ------------------------------------------------ */
+function validarFormulario(evento) {
+    evento.preventDefault(); // evita que el formulario se envíe y recargue la página
+
+    // Limpiar mensajes de error anteriores
+    document.getElementById("error-nombre").textContent = "";
+    document.getElementById("error-email").textContent = "";
+    document.getElementById("error-mensaje").textContent = "";
+    document.getElementById("confirmacion-envio").textContent = "";
+
+    try {
+        const nombre = document.getElementById("nombre").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mensaje = document.getElementById("mensaje").value.trim();
+
+        let hayErrores = false;
+
+        // Validar nombre vacío
+        if (nombre === "") {
+            document.getElementById("error-nombre").textContent = "El nombre es obligatorio.";
+            hayErrores = true;
+        }
+
+        // Validar email vacío y formato básico
+        if (email === "") {
+            document.getElementById("error-email").textContent = "El email es obligatorio.";
+            hayErrores = true;
+        } else if (!email.includes("@") || !email.includes(".")) {
+            document.getElementById("error-email").textContent = "Ingresá un email válido.";
+            hayErrores = true;
+        }
+
+        // Validar mensaje vacío
+        if (mensaje === "") {
+            document.getElementById("error-mensaje").textContent = "El mensaje es obligatorio.";
+            hayErrores = true;
+        }
+
+        // Si hay errores, se lanza una excepción manual
+        if (hayErrores) {
+            throw new Error("El formulario tiene campos inválidos.");
+        }
+
+        // Si todo está bien, se muestra la confirmación
+        document.getElementById("confirmacion-envio").textContent =
+            "✅ ¡Gracias " + nombre + "! Tu mensaje fue enviado correctamente.";
+
+        // Limpiar el formulario
+        document.getElementById("form-contacto").reset();
+
+    } catch (error) {
+        console.log("Error de validación: " + error.message);
+    }
+}
+
+/* Evento: submit — se ejecuta al enviar el formulario */
+document.getElementById("form-contacto").addEventListener("submit", validarFormulario);
