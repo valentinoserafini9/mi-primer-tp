@@ -52,3 +52,31 @@ function buscarJugadores() {
 
 /* Evento: input — se ejecuta mientras el usuario escribe */
 document.getElementById("buscador-jugadores").addEventListener("input", buscarJugadores);
+/* ------------------------------------------------
+   3. ARRAY de consejos
+   Se usa para mostrar un consejo aleatorio
+   ------------------------------------------------ */
+const consejos = [
+    "Practicá tiros desde fuera del área, suman variedad a tu ataque.",
+    "Defendé con paciencia, no te tires al piso sin necesidad.",
+    "Usá el sprint con cabeza, gastarlo todo te deja sin opciones.",
+    "Cambiá el ritmo del partido cuando el rival está cansado.",
+    "Practicá los penales en modo entrenamiento antes de un partido importante.",
+    "No abuses de los regates, a veces un pase simple es mejor."
+];
+
+/* ------------------------------------------------
+   4. FUNCIÓN: mostrarConsejoAleatorio
+   Elige un consejo random del array y lo muestra
+   en pantalla. Manipula el DOM modificando el texto.
+   ------------------------------------------------ */
+function mostrarConsejoAleatorio() {
+    const indiceRandom = Math.floor(Math.random() * consejos.length);
+    const consejoElegido = consejos[indiceRandom];
+
+    const parrafo = document.getElementById("consejo-random-texto");
+    parrafo.textContent = "💡 " + consejoElegido;
+}
+
+/* Evento: click — al presionar el botón se muestra un consejo nuevo */
+document.getElementById("btn-consejo-random").addEventListener("click", mostrarConsejoAleatorio);
